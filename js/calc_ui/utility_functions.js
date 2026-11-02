@@ -295,7 +295,7 @@ function stripTrainerLevelDuplicateMarkers(str) {
   if (typeof str !== "string") {
     return str;
   }
-  return str.replace(/(Lvl\s+[+-]?\d+)(?:\*+)(?=\s)/g, "$1");
+  return str.replace(/(Lvl\s+[+-]?\d+)(?:\*+|\s[A-Z!?])(?=\s)/g, "$1");
 }
 
 function stripTrainerLevelPrefix(str) {
