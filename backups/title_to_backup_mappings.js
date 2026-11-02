@@ -1,5 +1,6 @@
 backupFiles = {
-	"Heart & Soul 2.0.6": "heartandsoul",
+    "Pokemon Isahaya": "isahaya",
+    "Heart & Soul 2.0.6": "heartandsoul",
 	"Heart & Soul Difficult Teams": "heartandsouldifficult",
 	"Blaze Black/Volt White": "bb",
 	"Blaze Black 2/Volt White 2 Original": "bb2",
