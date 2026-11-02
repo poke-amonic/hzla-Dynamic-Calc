@@ -1088,6 +1088,7 @@ function getCurrentBackupFileName() {
 }
 
 const backupFileCacheKeys = {
+    isahaya: "20261102",
     vw: "original-20261101",
     frd: "20261028",
     frdnormal: "20261028",
@@ -1535,7 +1536,19 @@ function setGameSettings(title) {
 
     $('label[for="hail"]').hide()
     $('label[for="snow"]').show()
- } else if (TITLE.includes("Little Emerald")) {
+ } else if (TITLE.includes("Isahaya")) {
+    gameGen = 8
+    settings.gameSwitchIn = 8
+    settings.damageGen = 8
+    settings.sourceType = "full"
+    settings.typeChart = 6;
+    settings.critGen = 6;
+    settings.customPoks = 1;
+    showDex = false;
+    showAI = false;
+    $('label[for="snow"]').show().removeClass('btn-right').addClass('btn-mid')
+    $('label[for="hail"]').show()
+  } else if (TITLE.includes("Little Emerald")) {
     gameGen = 8
     settings.gameSwitchIn = 8
     settings.damageGen = 8
