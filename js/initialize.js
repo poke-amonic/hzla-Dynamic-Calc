@@ -1688,6 +1688,8 @@ function setBaseGame(title) {
             window.baseGame = "heartandsoul"
         } else if (title.includes("Unbound")) {
             window.baseGame = "unbound"
+        } else if (title.includes("Isahaya")) {
+            window.baseGame = "isahaya"
         } else if (isPokemonColorsTitle(title)) {
             window.baseGame = "g3"
         }
