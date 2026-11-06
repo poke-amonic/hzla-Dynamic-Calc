@@ -29,12 +29,16 @@
         "Timid", "Hasty", "Serious", "Jolly", "Naive", "Modest", "Mild", "Quiet", "Bashful", "Rash",
         "Calm", "Gentle", "Sassy", "Careful", "Quirky"];
 
-    const SUBSTRUCT_ORDER = [
-        [0, 1, 2, 3], [0, 1, 3, 2], [0, 2, 1, 3], [0, 3, 1, 2], [0, 2, 3, 1], [0, 3, 2, 1],
-        [1, 0, 2, 3], [1, 0, 3, 2], [2, 0, 1, 3], [3, 0, 1, 2], [2, 0, 3, 1], [3, 0, 2, 1],
-        [1, 2, 0, 3], [1, 3, 0, 2], [2, 1, 0, 3], [3, 1, 0, 2], [2, 3, 0, 1], [3, 2, 0, 1],
-        [1, 2, 3, 0], [1, 3, 2, 0], [2, 1, 3, 0], [3, 1, 2, 0], [2, 3, 1, 0], [3, 2, 1, 0],
+    // Copied from sSubstructOffsets in src/pokemon.c: [substruct type][pid % 24] -> position in the stored data.
+    const SUBSTRUCT_POSITION = [
+        [0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 2, 3, 1, 1, 2, 3, 2, 3, 1, 1, 2, 3, 2, 3],
+        [1, 1, 2, 3, 2, 3, 0, 0, 0, 0, 0, 0, 2, 3, 1, 1, 3, 2, 2, 3, 1, 1, 3, 2],
+        [2, 3, 1, 1, 3, 2, 2, 3, 1, 1, 3, 2, 0, 0, 0, 0, 0, 0, 3, 2, 3, 2, 1, 1],
+        [3, 2, 3, 2, 1, 1, 3, 2, 3, 2, 1, 1, 3, 2, 3, 2, 1, 1, 0, 0, 0, 0, 0, 0],
     ];
+    // SUBSTRUCT_ORDER[pid % 24][position] -> substruct type (0 growth, 1 moves, 2 EVs, 3 misc)
+    const SUBSTRUCT_ORDER = Array.from({ length: 24 }, (_, p) =>
+        [0, 1, 2, 3].map((pos) => [0, 1, 2, 3].find((t) => SUBSTRUCT_POSITION[t][p] === pos)));
 
     // Growth rate ids match include/constants/pokemon.h: 0 medium fast, 1 erratic, 2 fluctuating, 3 medium slow, 4 fast, 5 slow.
     const GROWTH = [
